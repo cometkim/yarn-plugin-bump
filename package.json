@@ -1,6 +1,16 @@
 {
   "name": "yarn-plugin-up",
+  "scripts": {
+    "build": "babel src -d lib"
+  },
   "dependencies": {
     "@yarnpkg/pnpify": "^2.0.0-rc.19"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/preset-env": "^7.8.7"
   }
 }
