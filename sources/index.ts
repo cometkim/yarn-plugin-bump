@@ -1,10 +1,10 @@
 import { Plugin } from '@yarnpkg/core';
 
-import BumpCommand from './commands/bump';
+import BetterUpCommand from './commands/better-up';
 
 const plugin: Plugin = {
   commands: [
-    BumpCommand,
+    BetterUpCommand,
   ],
 };
 
