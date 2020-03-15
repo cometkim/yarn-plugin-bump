@@ -1,9 +1,4 @@
-*                   text=auto
-/.pnp.js            binary linguist-generated
-/.yarn/plugins/*    binary linguist-generated
-/.yarn/releases/*   binary linguist-generated
-/.yarn/cache/*      linguist-vendored
-/.yarn/unplugged/*  linguist-vendored
-/.vscode/*.json     linguist-language=JSON5
-/.vscode/pnpify/**  binary linguist-generated
-/.tsconfig.json     linguist-language=JSON5
+*                       text=auto
+/.pnp.js                binary linguist-generated
+/.yarn/releases/*       binary linguist-generated
+/.yarn/cache/*          linguist-vendored
