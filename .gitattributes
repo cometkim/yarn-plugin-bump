@@ -5,3 +5,4 @@
 /.yarn/unplugged/*            linguist-vendored
 /.vscode/*.json               linguist-language=JSON5
 /.vscode/pnpify/typescript/** binary linguist-generated
+/.tsconfig.json               linguist-language=JSON5

@@ -109,3 +109,8 @@ dist
 
 # Build artifacts
 /lib/
+/bundles/
+
+# Generated example
+/tmp/
+/.yarn/plugins/@yarnpkg/plugin-up.js
