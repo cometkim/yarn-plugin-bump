@@ -1,0 +1,6 @@
+{
+  "name": "yarn-plugin-up",
+  "dependencies": {
+    "@yarnpkg/pnpify": "^2.0.0-rc.19"
+  }
+}
