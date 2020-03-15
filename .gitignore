@@ -104,6 +104,7 @@ dist
 .tern-port
 
 # Yarn 2
+/.yarn/unplugged/
 /.yarn/install-state.gz
 /.yarn/build-state.yml
 
