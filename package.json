@@ -1,36 +1,6 @@
 {
-  "name": "yarn-plugin-bump",
-  "private": true,
-  "version": "0.0.4",
-  "main": "./sources/index.ts",
-  "scripts": {
-    "build": "builder build plugin",
-    "sync": "yarn build && yarn plugin import ./bundles/@yarnpkg/plugin-bump.js",
-    "lint": "eslint --ignore-path .gitignore ./sources/**",
-    "lint:fix": "eslint --fix --ignore-path .gitignore ./sources/**"
-  },
-  "peerDependencies": {
-    "@yarnpkg/cli": "^2.0.0-rc.30",
-    "@yarnpkg/core": "^2.0.0-rc.24",
-    "@yarnpkg/plugin-essentials": "^2.0.0-rc.25"
-  },
+  "name": "yarn-plugin-up",
   "dependencies": {
-    "clipanion": "^2.3.0",
-    "core-js": "^3.6.4"
-  },
-  "devDependencies": {
-    "@types/node": "^12.12.31",
-    "@typescript-eslint/eslint-plugin": "^2.25.0",
-    "@typescript-eslint/parser": "^2.25.0",
-    "@yarnpkg/builder": "^2.0.0-rc.19",
-    "@yarnpkg/cli": "^2.0.0-rc.30",
-    "@yarnpkg/core": "^2.0.0-rc.24",
-    "@yarnpkg/plugin-essentials": "^2.0.0-rc.25",
-    "@yarnpkg/pnpify": "^2.0.0-rc.19",
-    "eslint": "^6.8.0",
-    "typescript": "^3.8.3"
-  },
-  "publishConfig": {
-    "main": "./lib/index.js"
+    "@yarnpkg/pnpify": "^2.0.0-rc.19"
   }
 }
