@@ -8,6 +8,7 @@ module.exports = {
       shippedProposals: true,
       corejs: 3,
     }],
+    '@babel/preset-typescript',
   ],
   plugins: [
     ['@babel/plugin-proposal-decorators', { legacy: true }],

@@ -1,18 +1,11 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
     "strict": true,
-    "module": "commonjs",
-    "target": "es2017",
-    "lib": [
-      "es2017"
-    ],
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "jsx": "react"
+    "esModuleInterop": true
   },
-  "include": [
-    "sources/**/*.ts",
-    "sources/**/*.tsx"
-  ]
+  "include": ["src"]
 }
