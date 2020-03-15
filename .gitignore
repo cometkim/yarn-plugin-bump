@@ -106,3 +106,6 @@ dist
 # Yarn 2
 /.yarn/install-state.gz
 /.yarn/build-state.yml
+
+# Build artifacts
+/lib/
