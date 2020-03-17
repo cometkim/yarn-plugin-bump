@@ -3,7 +3,9 @@
   "main": "./sources/index.ts",
   "scripts": {
     "build": "builder build plugin",
-    "sync": "yarn build && yarn plugin import ./bundles/@yarnpkg/plugin-up.js"
+    "sync": "yarn build && yarn plugin import ./bundles/@yarnpkg/plugin-up.js",
+    "lint": "eslint --ignore-path .gitignore ./sources/**",
+    "lint:fix": "eslint --fix --ignore-path .gitignore ./sources/**"
   },
   "peerDependencies": {
     "@yarnpkg/cli": "^2.0.0-rc.30",
@@ -19,10 +21,13 @@
     "@types/ink": "^2.0.3",
     "@types/node": "^13.9.1",
     "@types/react": "^16.9.23",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
     "@yarnpkg/builder": "^2.0.0-rc.19",
     "@yarnpkg/cli": "^2.0.0-rc.30",
     "@yarnpkg/core": "^2.0.0-rc.24",
     "@yarnpkg/pnpify": "^2.0.0-rc.19",
+    "eslint": "^6.8.0",
     "typescript": "^3.8.3"
   },
   "publishConfig": {
