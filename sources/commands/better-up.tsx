@@ -14,8 +14,12 @@ export default class UpCommand extends BaseCommand {
     description: ``,
     details: ``,
     examples: [
+      [
+        'Check what packages need to be upgrade',
+        'yarn bump',
+      ],
     ],
-  })
+  });
 
   @Command.Path('better-up')
   async execute(): Promise<number | void> {
