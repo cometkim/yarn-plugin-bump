@@ -1,7 +1,31 @@
-import { Cli, Command, Usage } from 'clipanion';
+import React from 'react';
+import { Box, render } from 'ink';
+import { Command, Usage } from 'clipanion';
 import { BaseCommand } from '@yarnpkg/cli';
-import { Configuration, Project, Workspace, Descriptor } from '@yarnpkg/core';
-import Essentials from '@yarnpkg/plugin-essentials';
+import {
+  Configuration, Project, StreamReport, Cache, Workspace, Descriptor, IdentHash,
+} from '@yarnpkg/core';
+
+enum SettingKey {
+  LOCKFILE_FILENAME = 'lockfileFilename',
+  NPM_REGISTRY_SERVER = 'npmRegistryServer',
+}
+
+// TODO
+interface Release {
+
+}
+
+// TODO
+interface Changelog {
+  from: Release;
+  to: Release;
+}
+
+// TODO
+function formatChangelog(changelog: Changelog) {
+
+}
 
 export default class UpCommand extends BaseCommand {
   static usage: Usage = Command.Usage({
@@ -39,42 +63,31 @@ export default class UpCommand extends BaseCommand {
     return new Map([...dependencies, ...devDependencies]);
   }
 
-  resolveFullPackageName({ scope, name }: Descriptor) {
+  resolveFullPackageName({scope, name}: Descriptor) {
     return scope ? `@${scope}/${name}` : name;
   }
 
   @Command.Path('bump')
   async execute(): Promise<number | void> {
-    const configuration = await Configuration.find(
-      this.context.cwd,
-      this.context.plugins
-    );
-    const { workspace } = await Project.find(
-      configuration,
-      this.context.cwd
-    );
+    const configuration = await Configuration.find(this.context.cwd, this.context.plugins);
+    const {workspace} = await Project.find(configuration, this.context.cwd);
 
     if (!workspace) {
-      throw new Error('');
-    }
-
-    if (!Essentials.commands) {
-      throw new Error('');
+      throw Error('');
     }
 
     const hardDependencies = this.getHardDependencies(workspace);
 
-    const descriptors = [...hardDependencies.values()]
-      .filter(descriptor => this.resolveFullPackageName(descriptor)
-        .match(this.packages.join('|') || null as any))
-      .filter(descriptor => !this.resolveFullPackageName(descriptor)
-        .match(this.exclude.join('|') || null as any));
+    const packageNames = [...hardDependencies.values()]
+      .filter(descriptor => this.resolveFullPackageName(descriptor).match(this.packages.join('|') || null as any))
+      .filter(descriptor => !this.resolveFullPackageName(descriptor).match(this.exclude.join('|') || null as any))
+      .map(this.resolveFullPackageName);
 
-    const packageNames = descriptors.map(this.resolveFullPackageName);
-
-    const cli = Cli.from(Essentials.commands);
-    const result = await cli.runExit(['up', ...packageNames], this.context);
-
-    return result;
+    render(
+      <>
+        {packageNames.map(p => <Box key={p}>{p}</Box>)}
+      </>
+    );
+    return 0;
   }
 }
