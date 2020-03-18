@@ -7168,9 +7168,9 @@ typescript@^3.8.3:
   languageName: node
   linkType: hard
 
-"yarn-plugin-up@workspace:.":
+"yarn-plugin-bump@workspace:.":
   version: 0.0.0-use.local
-  resolution: "yarn-plugin-up@workspace:."
+  resolution: "yarn-plugin-bump@workspace:."
   dependencies:
     "@types/ink": ^2.0.3
     "@types/node": ^13.9.1

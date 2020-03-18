@@ -1,9 +1,9 @@
 {
-  "name": "yarn-plugin-up",
+  "name": "yarn-plugin-bump",
   "main": "./sources/index.ts",
   "scripts": {
     "build": "builder build plugin",
-    "sync": "yarn build && yarn plugin import ./bundles/@yarnpkg/plugin-up.js",
+    "sync": "yarn build && yarn plugin import ./bundles/@yarnpkg/plugin-bump.js",
     "lint": "eslint --ignore-path .gitignore ./sources/**",
     "lint:fix": "eslint --fix --ignore-path .gitignore ./sources/**"
   },
