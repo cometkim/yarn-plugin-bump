@@ -114,4 +114,4 @@ dist
 
 # Generated example
 /tmp/
-/.yarn/plugins/@yarnpkg/plugin-up.js
+/.yarn/plugins/@yarnpkg/plugin-bump.js
