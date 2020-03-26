@@ -1,0 +1,56 @@
+on:
+  push:
+    tags:
+      - "v*"
+
+name: Publish the plugin
+
+jobs:
+  build-and-publish:
+    strategy:
+      matrix:
+        node:
+          - 12
+        platform:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+      fail-fast: true
+    name: ${{ matrix.platform }} w/ Node.js ${{ matrix.node }}
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Use Node.js ${{matrix.node}}.x
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{matrix.node}}.x
+
+      - name: Install dependencies
+        run: yarn install
+        shell: bash
+
+      - name: Build artifact
+        run: yarn build
+
+      - name: Create a release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload artifact
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./bundles/@yarnpkg/plugin-bump.js
+          asset_name: plugin-bump_${{ matrix.platform }}.js
+          asset_content_type: application/javascript
