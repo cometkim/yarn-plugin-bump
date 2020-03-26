@@ -17,18 +17,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        ref: dependencies/all
+        ref: master
 
     - name: Bump up Yarn 2 dependencies
-      uses: cometkim/yarn-plugin-bump/action@master
+      uses: cometkim/yarn-plugin-bump@master
       with:
-        pattern: "*"
+        pattern: ".*"
         branch: dependencies/all
 
     - name: Sync dependency update branch with Pull Request
       uses: vsoch/pull-request-action@1.0.5
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH_PREFIX: dependencies/
-        PULL_REQUEST_BRANCH: master
+        PULL_REQUEST_FROM_BRANCH: master
 ```
