@@ -10,14 +10,14 @@ fi
 git config --local user.name "$GIT_USERNAME"
 git config --local user.email "$GIT_EMAIL"
 
-git remote set-url origin "https://:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
 # Checkout the target branch
-git fetch origin
-git checkout -b "$GIT_BRANCH" "origin/$GIT_BRANCH" 2>/dev/null || git checkout -b "$GIT_BRANCH" "origin/$GIT_BASE_REF"
+git fetch origin $GIT_BASE_REF
+git checkout -t "origin/$GIT_BRANCH" 2>/dev/null || git checkout -B "$GIT_BRANCH" "origin/$GIT_BASE_REF"
 
 # Rebase
-git rebase -X theirs "origin/$GIT_BASE_REF"
+git rebase "origin/$GIT_BASE_REF"
 
 # Checking if the command pre-installed
 yarn bump --help >/dev/null 2>&1
