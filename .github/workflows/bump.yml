@@ -1,8 +1,4 @@
 on:
-  pull_request:
-    branches:
-      - master
-
   schedule:
     - cron: "0 0 * * 6"
 
@@ -29,5 +25,4 @@ jobs:
         uses: vsoch/pull-request-action@1.0.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_PREFIX: dependencies/
           PULL_REQUEST_FROM_BRANCH: dependencies/all
