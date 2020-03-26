@@ -2,6 +2,11 @@
 
 set -uo pipefail
 
+if [[ -z "$GITHUB_TOKEN" ]]; then
+    echo '$GITHUB_TOKEN must be provided'
+    exit 1
+fi
+
 # Checking if the command pre-installed
 yarn bump --help > /dev/null
 if [[ $? -ne 0 ]]; then

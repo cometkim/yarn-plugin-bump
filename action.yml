@@ -20,6 +20,11 @@ inputs:
     description: Name of branch that the bumping result is synced
     required: true
 
+  repository:
+    description: GitHub repository
+    required: true
+    default: ${{ github.repository }}
+
   username:
     description: Git username
     required: true
@@ -39,8 +44,7 @@ runs:
   using: "docker"
   image: "Dockerfile"
   env:
-    GITHUB_REPOSITORY: ${{ github.repository }}
-    GITHUB_TOKEN: ${{ github.token }}
+    GITHUB_REPOSITORY: ${{ inputs.repository }}
     GIT_USERNAME: ${{ inputs.username }}
     GIT_EMAIL: ${{ inputs.email }}
     GIT_BRANCH: ${{ inputs.branch }}
