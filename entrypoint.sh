@@ -14,7 +14,7 @@ git checkout $GIT_BRANCH 2> /dev/null || git checkout -b $GIT_BRANCH
 yarn bump --help > /dev/null 2>&1
 if [[ $? -ne 0 ]]; then
   echo "Download plugin from $PLUGIN_REMOTE"
-  yarn import "$PLUGIN_REMOTE"
+  yarn plugin import "$PLUGIN_REMOTE"
 fi
 
 yarn bump $@ || exit 1
