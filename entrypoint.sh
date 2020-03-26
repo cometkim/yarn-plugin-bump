@@ -7,6 +7,9 @@ if [[ -z "$GITHUB_TOKEN" ]]; then
     exit 1
 fi
 
+# Checkout the target branch
+git checkout $GIT_BRANCH || git checkout -b $GIT_BRANCH
+
 # Checking if the command pre-installed
 yarn bump --help > /dev/null
 if [[ $? -ne 0 ]]; then
