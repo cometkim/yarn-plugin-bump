@@ -30,4 +30,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_PREFIX: dependencies/
-          PULL_REQUEST_BRANCH: ${{ github.base_ref }}
+          PULL_REQUEST_FROM_BRANCH: dependencies/all
