@@ -13,10 +13,17 @@ module.exports = {
     'comma-spacing': ['error', { after: true }],
     'array-bracket-newline': ['error', 'consistent'],
     'object-curly-newline': ['error', {
-      multiline: true,
-      consistent: true,
-      minProperties: 3,
+      'ObjectExpression': 'always',
+      'ObjectPattern': {
+        'multiline': true,
+      },
+      'ImportDeclaration': 'never',
+      'ExportDeclaration': {
+        'multiline': true,
+        'minProperties': 3,
+      }
     }],
+    'object-curly-spacing': ['error', 'always'],
     'comma-dangle': ['error', 'always-multiline'],
     'indent': 'off',
     '@typescript-eslint/indent': ['error', 2],
@@ -25,5 +32,6 @@ module.exports = {
     'quotes': 'off',
     '@typescript-eslint/quotes': ['error', 'single'],
     '@typescript-eslint/array-type': ['error', { default:'array-simple' }],
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
 };
