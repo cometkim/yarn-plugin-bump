@@ -146,16 +146,27 @@ module.exports = {
 
   const plugin_essentials_1 = __importDefault(__webpack_require__(5));
 
-  class UpCommand extends cli_1.BaseCommand {
+  class BumpCommand extends cli_1.BaseCommand {
     constructor() {
       super(...arguments);
       this.packages = [];
       this.exclude = [];
+      this.dependencyKind = 'all';
     }
 
-    getHardDependencies(workspace) {
+    getDependencies(workspace) {
       const dependencies = workspace.manifest.dependencies;
+
+      if (this.dependencyKind === 'production') {
+        return dependencies;
+      }
+
       const devDependencies = workspace.manifest.devDependencies;
+
+      if (this.dependencyKind === 'development') {
+        return devDependencies;
+      }
+
       return new Map([...dependencies, ...devDependencies]);
     }
 
@@ -173,15 +184,17 @@ module.exports = {
       } = await core_1.Project.find(configuration, this.context.cwd);
 
       if (!workspace) {
-        throw new Error('');
+        throw new Error(`Workspace setting is not found.
+  Please run the command in path where yarn initialized.`);
       }
 
       if (!plugin_essentials_1.default.commands) {
-        throw new Error('');
+        throw new Error(`Yarn commands could not be loaded.
+  Please upgrade to Yarn 2.`);
       }
 
-      const hardDependencies = this.getHardDependencies(workspace);
-      const descriptors = [...hardDependencies.values()].filter(descriptor => this.resolveFullPackageName(descriptor).match(this.packages.join('|') || null)).filter(descriptor => !this.resolveFullPackageName(descriptor).match(this.exclude.join('|') || null));
+      const dependencies = this.getDependencies(workspace);
+      const descriptors = [...dependencies.values()].filter(descriptor => this.resolveFullPackageName(descriptor).match(this.packages.join('|') || '.*')).filter(descriptor => !this.resolveFullPackageName(descriptor).match(this.exclude.join('|') || null));
       const packageNames = descriptors.map(this.resolveFullPackageName);
       const cli = clipanion_1.Cli.from(plugin_essentials_1.default.commands);
       const result = await cli.runExit(['up', ...packageNames], this.context);
@@ -190,19 +203,21 @@ module.exports = {
 
   }
 
-  UpCommand.usage = clipanion_1.Command.Usage({
-    description: '',
-    details: '',
-    examples: [['Check what packages need to be upgrade', 'yarn bump'], ['Check update for the lodash package', 'yarn bump lodash'], ['Check update for packages match "^gatsby-*"', 'yarn bump "^gatsby-*"'], ['Check packages exclude react and react-dom', 'yarn bump --exclude react --exclude react-dom']]
+  BumpCommand.usage = clipanion_1.Command.Usage({
+    description: 'A Yarn 2 plugin to easily upgrade dependencies.',
+    details: 'A Yarn 2 plugin for upgrading PnP-mode dependencies easily' + ' with a dead-simple command and no waste of interactions.',
+    examples: [['Upgrade all dependencies', 'yarn bump'], ['Upgrade only the lodash package', 'yarn bump ^lodash$'], ['Upgrade packages match with "^gatsby-*"', 'yarn bump "^gatsby-*"'], ['Upgrade only exclude react and react-dom', 'yarn bump --exclude react --exclude react-dom'], ['Upgrade only development dependencies', 'yarn bump --kind development'], ['Upgrade only production dependencies', 'yarn bump --kind production']]
   });
 
-  __decorate([clipanion_1.Command.Rest()], UpCommand.prototype, "packages", void 0);
+  __decorate([clipanion_1.Command.Rest()], BumpCommand.prototype, "packages", void 0);
 
-  __decorate([clipanion_1.Command.Array('--exclude')], UpCommand.prototype, "exclude", void 0);
+  __decorate([clipanion_1.Command.Array('--exclude')], BumpCommand.prototype, "exclude", void 0);
 
-  __decorate([clipanion_1.Command.Path('bump')], UpCommand.prototype, "execute", null);
+  __decorate([clipanion_1.Command.String('--kind')], BumpCommand.prototype, "dependencyKind", void 0);
 
-  exports.default = UpCommand;
+  __decorate([clipanion_1.Command.Path('bump')], BumpCommand.prototype, "execute", null);
+
+  exports.default = BumpCommand;
 
   /***/ }),
   /* 2 */

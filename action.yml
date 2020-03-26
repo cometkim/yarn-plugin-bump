@@ -8,21 +8,26 @@ branding:
 
 inputs:
   pattern:
-    description: Pattern of dependency name
+    description: Pattern of dependency name, default and empty string will upgrade all dependencies.
     required: true
-    default: ".*"
+    default: ""
 
   exclude:
-    description: Pattern of dependency name to exclude
+    description: Pattern of dependency name to exclude.
     required: false
 
+  kind:
+    description: "Specify kind of dependency you want upgrade. One of all, development and production (default: all)"
+    required: true
+    default: "all"
+
   base-ref:
-    description: Base ref that branch would be checked out from
+    description: "Base ref that branch would be checked out from. (default: master)"
     required: true
     default: master
 
   branch:
-    description: Name of branch that the bumping result is synced
+    description: Target branch that the bumping result will be synced.
     required: true
 
   repository:
@@ -58,3 +63,4 @@ runs:
   args:
     - "${{ inputs.pattern }}"
     - --exclude "${{ inputs.exclude }}"
+    - --kind "${{ inputs.kind }}"

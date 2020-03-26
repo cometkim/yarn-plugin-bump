@@ -19,7 +19,6 @@ jobs:
       - name: Bump up Yarn 2 dependencies
         uses: cometkim/yarn-plugin-bump@master
         with:
-          pattern: ".*"
           branch: dependencies/all
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,26 +3,36 @@ import { BaseCommand } from '@yarnpkg/cli';
 import { Configuration, Project, Workspace, Descriptor } from '@yarnpkg/core';
 import Essentials from '@yarnpkg/plugin-essentials';
 
-export default class UpCommand extends BaseCommand {
+export default class BumpCommand extends BaseCommand {
   static usage: Usage = Command.Usage({
-    description: '',
-    details: '',
+    description: 'A Yarn 2 plugin to easily upgrade dependencies.',
+    details: 'A Yarn 2 plugin for upgrading PnP-mode dependencies easily' +
+      ' with a dead-simple command and no waste of interactions.'
+    ,
     examples: [
       [
-        'Check what packages need to be upgrade',
+        'Upgrade all dependencies',
         'yarn bump',
       ],
       [
-        'Check update for the lodash package',
-        'yarn bump lodash',
+        'Upgrade only the lodash package',
+        'yarn bump ^lodash$',
       ],
       [
-        'Check update for packages match "^gatsby-*"',
+        'Upgrade packages match with "^gatsby-*"',
         'yarn bump "^gatsby-*"',
       ],
       [
-        'Check packages exclude react and react-dom',
+        'Upgrade only exclude react and react-dom',
         'yarn bump --exclude react --exclude react-dom',
+      ],
+      [
+        'Upgrade only development dependencies',
+        'yarn bump --kind development',
+      ],
+      [
+        'Upgrade only production dependencies',
+        'yarn bump --kind production',
       ],
     ],
   });
@@ -33,10 +43,24 @@ export default class UpCommand extends BaseCommand {
   @Command.Array('--exclude')
   exclude: string[] = [];
 
-  getHardDependencies(workspace: Workspace) {
+  @Command.String('--kind')
+  dependencyKind: 'development' | 'production' | 'all' = 'all';
+
+  getDependencies(workspace: Workspace) {
     const dependencies = workspace.manifest.dependencies;
+    if (this.dependencyKind === 'production') {
+      return dependencies;
+    }
+
     const devDependencies = workspace.manifest.devDependencies;
-    return new Map([...dependencies, ...devDependencies]);
+    if (this.dependencyKind === 'development') {
+      return devDependencies;
+    }
+
+    return new Map([
+      ...dependencies,
+      ...devDependencies,
+    ]);
   }
 
   resolveFullPackageName({ scope, name }: Descriptor) {
@@ -55,18 +79,23 @@ export default class UpCommand extends BaseCommand {
     );
 
     if (!workspace) {
-      throw new Error('');
+      throw new Error(
+        `Workspace setting is not found.
+Please run the command in path where yarn initialized.`
+      );
     }
 
     if (!Essentials.commands) {
-      throw new Error('');
+      throw new Error(
+        `Yarn commands could not be loaded.
+Please upgrade to Yarn 2.`
+      );
     }
 
-    const hardDependencies = this.getHardDependencies(workspace);
-
-    const descriptors = [...hardDependencies.values()]
+    const dependencies = this.getDependencies(workspace);
+    const descriptors = [...dependencies.values()]
       .filter(descriptor => this.resolveFullPackageName(descriptor)
-        .match(this.packages.join('|') || null as any))
+        .match(this.packages.join('|') || '.*' as any))
       .filter(descriptor => !this.resolveFullPackageName(descriptor)
         .match(this.exclude.join('|') || null as any));
 
