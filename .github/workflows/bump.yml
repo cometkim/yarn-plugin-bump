@@ -1,0 +1,31 @@
+on:
+  pull_request:
+    branches:
+      - master
+
+  schedule:
+    - cron: "0 0 * * 6"
+
+name: Bumping dependencies
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Bump up Yarn 2 dependencies
+        uses: cometkim/yarn-plugin-bump@master
+        with:
+          pattern: "*"
+          branch: dependencies/all
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync dependency update branch with Pull Request
+        uses: vsoch/pull-request-action@1.0.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_PREFIX: dependencies/
+          PULL_REQUEST_BRANCH: master
