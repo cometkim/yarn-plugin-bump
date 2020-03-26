@@ -16,8 +16,7 @@
   },
   "dependencies": {
     "clipanion": "^2.3.0",
-    "core-js": "^3.6.4",
-    "urql": "^1.9.4"
+    "core-js": "^3.6.4"
   },
   "devDependencies": {
     "@types/node": "^12.12.31",

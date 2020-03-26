@@ -390,7 +390,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/keyv@npm:*":
+"@types/keyv@npm:*, @types/keyv@npm:^3.1.1":
   version: 3.1.1
   resolution: "@types/keyv@npm:3.1.1"
   dependencies:
@@ -420,7 +420,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/responselike@npm:*":
+"@types/responselike@npm:*, @types/responselike@npm:^1.0.0":
   version: 1.0.0
   resolution: "@types/responselike@npm:1.0.0"
   dependencies:
@@ -506,17 +506,6 @@ __metadata:
     typescript:
       optional: true
   checksum: 2/c7093c1734ec97598fc763c9b084c568a3392fa422b8fa19844a1bbf057925a01484d70fef4ca18bcd94084ece01399db507310ac56ff8f83fe96f0877da2cf2
-  languageName: node
-  linkType: hard
-
-"@urql/core@npm:^1.10.4":
-  version: 1.10.4
-  resolution: "@urql/core@npm:1.10.4"
-  dependencies:
-    wonka: ^4.0.9
-  peerDependencies:
-    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0
-  checksum: 2/e3eec2d5287e60b26d600d36c48c9d7c1f8bfcbb07ad008d969b641c8cb1fd9a85e3637ecdd0c7ae5d6d079d30f842929e3b14a5dd17d4c86349acd9eec98c08
   languageName: node
   linkType: hard
 
@@ -6929,19 +6918,6 @@ typescript@^3.8.3:
   languageName: node
   linkType: hard
 
-"urql@npm:^1.9.4":
-  version: 1.9.4
-  resolution: "urql@npm:1.9.4"
-  dependencies:
-    "@urql/core": ^1.10.4
-    wonka: ^4.0.9
-  peerDependencies:
-    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0
-    react: ">= 16.8.0"
-  checksum: 2/a2c9bf581e87d444a3537dd075b53b2d778560da4a2797e49256f6b5d1894ce5cb575d0efbb52b47d4954482c2e010fd90121998c06d3eab11d0e0d1b6db4e1e
-  languageName: node
-  linkType: hard
-
 "use@npm:^3.1.0":
   version: 3.1.1
   resolution: "use@npm:3.1.1"
@@ -7112,13 +7088,6 @@ typescript@^3.8.3:
   languageName: node
   linkType: hard
 
-"wonka@npm:^4.0.9":
-  version: 4.0.9
-  resolution: "wonka@npm:4.0.9"
-  checksum: 2/daaf387c6aef3ce420d729651400c1cc2c1c3e2122940332e15b0a7d9ce7a8856d247c8e3f2dc67ebd1f429d3d7c6fd7579978d1d10889498ee9020a6f825f25
-  languageName: node
-  linkType: hard
-
 "word-wrap@npm:~1.2.3":
   version: 1.2.3
   resolution: "word-wrap@npm:1.2.3"
@@ -7217,7 +7186,6 @@ typescript@^3.8.3:
     core-js: ^3.6.4
     eslint: ^6.8.0
     typescript: ^3.8.3
-    urql: ^1.9.4
   peerDependencies:
     "@yarnpkg/cli": ^2.0.0-rc.30
     "@yarnpkg/core": ^2.0.0-rc.24

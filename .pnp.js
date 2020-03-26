@@ -76,10 +76,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [
         "typescript",
         "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"
-      ],
-      [
-        "urql",
-        "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:1.9.4"
       ]
     ],
     "locationBlacklistData": [
@@ -100,13 +96,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["clipanion", "npm:2.3.0"],
             ["core-js", "npm:3.6.4"],
             ["eslint", "npm:6.8.0"],
-            ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"],
-            ["urql", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:1.9.4"]
-          ],
-          "packagePeers": [
-            "@yarnpkg/cli",
-            "@yarnpkg/core",
-            "@yarnpkg/plugin-essentials"
+            ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
           ],
           "linkType": "SOFT",
         }]
@@ -695,20 +685,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "typescript"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@urql/core", [
-        ["virtual:b1eefabc735bd6448bb1a4415a9799ac926ebd559280a3989fa371688569fd181c38d16efa9ed41daef6e433b6d5691112be2b94d10e52508a112f96759e1636#npm:1.10.4", {
-          "packageLocation": "./.yarn/$$virtual/@urql-core-virtual-1e9160a094/0/cache/@urql-core-npm-1.10.4-9a4808f322-2.zip/node_modules/@urql/core/",
-          "packageDependencies": [
-            ["@urql/core", "virtual:b1eefabc735bd6448bb1a4415a9799ac926ebd559280a3989fa371688569fd181c38d16efa9ed41daef6e433b6d5691112be2b94d10e52508a112f96759e1636#npm:1.10.4"],
-            ["graphql", null],
-            ["wonka", "npm:4.0.9"]
-          ],
-          "packagePeers": [
-            "graphql"
           ],
           "linkType": "HARD",
         }]
@@ -2290,6 +2266,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cacheable-lookup-npm-2.0.0-82dd2af682-2.zip/node_modules/cacheable-lookup/",
           "packageDependencies": [
             ["cacheable-lookup", "npm:2.0.0"],
+            ["@types/keyv", "npm:3.1.1"],
             ["keyv", "npm:4.0.0"]
           ],
           "linkType": "HARD",
@@ -3934,6 +3911,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@sindresorhus/is", "npm:2.1.0"],
             ["@szmarczak/http-timer", "npm:4.0.5"],
             ["@types/cacheable-request", "npm:6.0.1"],
+            ["@types/keyv", "npm:3.1.1"],
+            ["@types/responselike", "npm:1.0.0"],
             ["cacheable-lookup", "npm:2.0.0"],
             ["cacheable-request", "npm:7.0.1"],
             ["decompress-response", "npm:5.0.0"],
@@ -7908,23 +7887,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["urql", [
-        ["virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:1.9.4", {
-          "packageLocation": "./.yarn/$$virtual/urql-virtual-b1eefabc73/0/cache/urql-npm-1.9.4-16b54e0a50-2.zip/node_modules/urql/",
-          "packageDependencies": [
-            ["urql", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:1.9.4"],
-            ["@urql/core", "virtual:b1eefabc735bd6448bb1a4415a9799ac926ebd559280a3989fa371688569fd181c38d16efa9ed41daef6e433b6d5691112be2b94d10e52508a112f96759e1636#npm:1.10.4"],
-            ["graphql", null],
-            ["react", null],
-            ["wonka", "npm:4.0.9"]
-          ],
-          "packagePeers": [
-            "graphql",
-            "react"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["use", [
         ["npm:3.1.1", {
           "packageLocation": "./.yarn/cache/use-npm-3.1.1-7ba643714c-2.zip/node_modules/use/",
@@ -8110,15 +8072,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["wonka", [
-        ["npm:4.0.9", {
-          "packageLocation": "./.yarn/cache/wonka-npm-4.0.9-56d5dd2c95-2.zip/node_modules/wonka/",
-          "packageDependencies": [
-            ["wonka", "npm:4.0.9"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["word-wrap", [
         ["npm:1.2.3", {
           "packageLocation": "./.yarn/cache/word-wrap-npm-1.2.3-7fb15ab002-2.zip/node_modules/word-wrap/",
@@ -8229,13 +8182,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["clipanion", "npm:2.3.0"],
             ["core-js", "npm:3.6.4"],
             ["eslint", "npm:6.8.0"],
-            ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"],
-            ["urql", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:1.9.4"]
-          ],
-          "packagePeers": [
-            "@yarnpkg/cli",
-            "@yarnpkg/core",
-            "@yarnpkg/plugin-essentials"
+            ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
           ],
           "linkType": "SOFT",
         }]
