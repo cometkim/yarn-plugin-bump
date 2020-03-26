@@ -2,6 +2,32 @@
 
 Non-interactive dependency upgrade tool for Yarn 2
 
+```bash
+yarn bump
+```
+
+## Options
+
+```bash
+Usage:
+
+$ yarn bump [--exclude #0] ...
+
+Examples:
+
+Check what packages need to be upgrade
+  $ yarn bump
+
+Check update for the lodash package
+  $ yarn bump lodash
+
+Check update for packages match "^gatsby-*"
+  $ yarn bump "^gatsby-*"
+
+Check packages exclude react and react-dom
+  $ yarn bump --exclude react --exclude react-dom
+```
+
 ## Using the plugin through GitHub action
 
 Bumping all dependencies and devDependencies and push it to bump-all branch every saturday.
