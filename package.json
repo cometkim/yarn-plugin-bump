@@ -1,7 +1,7 @@
 {
   "name": "yarn-plugin-bump",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./sources/index.ts",
   "scripts": {
     "build": "builder build plugin",

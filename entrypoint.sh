@@ -22,8 +22,9 @@ git rebase -X theirs "origin/$GIT_BASE_REF"
 # Checking if the command pre-installed
 yarn bump --help >/dev/null 2>&1
 if [[ $? -ne 0 ]]; then
-  echo "Download plugin from $PLUGIN_REMOTE"
-  yarn plugin import "$PLUGIN_REMOTE"
+  echo "Download plugin from $PLUGIN_SOURCE..."
+  local ARTIFACT_URL="${PLUGIN_SOURCE}/releases/download/v${PLUGIN_VERSION}/plugin-bump_ubuntu-latest.js"
+  yarn plugin import "$ARTIFACT_URL"
 fi
 
 yarn bump $@

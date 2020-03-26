@@ -10,7 +10,7 @@ inputs:
   pattern:
     description: Pattern of dependency name
     required: true
-    default: "*"
+    default: ".*"
 
   exclude:
     description: Pattern of dependency name to exclude
