@@ -1,20 +1,22 @@
-FROM node:13.1
+FROM node:alpine
 
 LABEL repository="https://github.com/cometkim/yarn-plugin-bump"
 LABEL maintainer="Hyeseong Kim <cometkim.kr@gmail.com>"
 
-ENV PLUGIN_SOURCE="https://github.com/cometkim/yarn-plugin-bump"
-ENV PLUGIN_VERSION="0.0.4"
+ENV PLUGIN_VERSION="0.0.1"
+ENV PLUGIN_REMOTE="https://github.com/cometkim/yarn-plugin-bump/releases/download/v0.0.1/plugin-bump.js"
 
-RUN apt update && apt install -y --no-install-recommends \
-    ca-certificates \
-    git \
-  && apt autoclean \
-  && apt autoremove -y \
-  && rm -rf /var/lib/apt/lists/*
+# TODO pre-installed script
+# ENV PLUGIN_LOCAL=""
+
+RUN apk add --no-cache \
+  git \
+  bash \
+  ca-certificates
 
 WORKDIR /action
 COPY entrypoint.sh .
 
-RUN chmod u+x /action/entrypoint.sh
+RUN chmod +x entrypoint.sh
+
 ENTRYPOINT ["/action/entrypoint.sh"]

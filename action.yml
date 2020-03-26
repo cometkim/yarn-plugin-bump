@@ -10,25 +10,15 @@ inputs:
   pattern:
     description: Pattern of dependency name
     required: true
-    default: ".*"
+    default: "*"
 
   exclude:
     description: Pattern of dependency name to exclude
     required: false
 
-  base-ref:
-    description: Base ref that branch would be checked out from
-    required: true
-    default: master
-
   branch:
     description: Name of branch that the bumping result is synced
     required: true
-
-  repository:
-    description: GitHub repository
-    required: true
-    default: ${{ github.repository }}
 
   username:
     description: Git username
@@ -49,10 +39,10 @@ runs:
   using: "docker"
   image: "Dockerfile"
   env:
-    GITHUB_REPOSITORY: ${{ inputs.repository }}
+    GITHUB_REPOSITORY: ${{ github.repository }}
+    GITHUB_TOKEN: ${{ github.token }}
     GIT_USERNAME: ${{ inputs.username }}
     GIT_EMAIL: ${{ inputs.email }}
-    GIT_BASE_REF: ${{ inputs.base-ref }}
     GIT_BRANCH: ${{ inputs.branch }}
     GIT_COMMIT_MSG: ${{ inputs.commit-message }}
   args:
