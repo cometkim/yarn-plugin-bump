@@ -8,11 +8,12 @@ if [[ -z "$GITHUB_TOKEN" ]]; then
 fi
 
 # Checkout the target branch
-git checkout $GIT_BRANCH || git checkout -b $GIT_BRANCH
+git checkout $GIT_BRANCH 2> /dev/null || git checkout -b $GIT_BRANCH
 
 # Checking if the command pre-installed
-yarn bump --help > /dev/null
+yarn bump --help > /dev/null 2>&1
 if [[ $? -ne 0 ]]; then
+  echo "Download plugin from $PLUGIN_REMOTE"
   yarn import "$PLUGIN_REMOTE"
 fi
 
