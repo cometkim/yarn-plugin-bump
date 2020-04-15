@@ -7,24 +7,15 @@ name: Publish the plugin
 
 jobs:
   build-and-publish:
-    strategy:
-      matrix:
-        node:
-          - 12
-        platform:
-          - ubuntu-latest
-          - windows-latest
-          - macos-latest
-      fail-fast: true
-    name: ${{ matrix.platform }} w/ Node.js ${{ matrix.node }}
-    runs-on: ${{ matrix.platform }}
+    name: Build w/ Node.js and publish release
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
 
-      - name: Use Node.js ${{matrix.node}}.x
+      - name: Use Node.js 12.x
         uses: actions/setup-node@master
         with:
-          node-version: ${{matrix.node}}.x
+          node-version: 12
 
       - name: Install dependencies
         run: yarn install
@@ -53,5 +44,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./bundles/@yarnpkg/plugin-bump.js
-          asset_name: plugin-bump_${{ matrix.platform }}.js
+          asset_name: plugin-bump.js
           asset_content_type: application/javascript
