@@ -26,7 +26,7 @@ But feel free to fork this project, or send an issue about any idea you have.
 ## Install
 
 ```bash
-yarn import https://github.com/cometkim/yarn-plugin-bump/releases/download/latest/plugin-bump_{{ platform }}-latest.js
+yarn plugin import https://github.com/cometkim/yarn-plugin-bump/releases/download/v0.0.6/plugin-bump.js
 ```
 
 ## How to use
