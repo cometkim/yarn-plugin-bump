@@ -31,7 +31,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackPool": [
       [
         "@types/node",
-        "npm:13.11.1"
+        "npm:13.13.0"
       ],
       [
         "@typescript-eslint/eslint-plugin",
@@ -63,7 +63,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "clipanion",
-        "npm:2.3.0"
+        "npm:2.3.1"
       ],
       [
         "core-js",
@@ -85,7 +85,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["@types/node", "npm:13.11.1"],
+            ["@types/node", "npm:13.13.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.28.0"],
             ["@typescript-eslint/parser", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.28.0"],
             ["@yarnpkg/builder", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.0.0-rc.19"],
@@ -93,7 +93,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/core", "npm:2.0.0-rc.25"],
             ["@yarnpkg/plugin-essentials", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.0.0-rc.25"],
             ["@yarnpkg/pnpify", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.0.0-rc.20"],
-            ["clipanion", "npm:2.3.0"],
+            ["clipanion", "npm:2.3.1"],
             ["core-js", "npm:3.6.5"],
             ["eslint", "npm:6.8.0"],
             ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]
@@ -559,10 +559,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/node", [
-        ["npm:13.11.1", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-13.11.1-ea46d1204d-2.zip/node_modules/@types/node/",
+        ["npm:13.13.0", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-13.13.0-247c77d018-2.zip/node_modules/@types/node/",
           "packageDependencies": [
-            ["@types/node", "npm:13.11.1"]
+            ["@types/node", "npm:13.13.0"]
           ],
           "linkType": "HARD",
         }],
@@ -2493,6 +2493,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/clipanion-npm-2.3.0-95c59c0cc2-2.zip/node_modules/clipanion/",
           "packageDependencies": [
             ["clipanion", "npm:2.3.0"],
+            ["chalk", "npm:2.4.2"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:2.3.1", {
+          "packageLocation": "./.yarn/cache/clipanion-npm-2.3.1-ffef67e6d5-2.zip/node_modules/clipanion/",
+          "packageDependencies": [
+            ["clipanion", "npm:2.3.1"],
             ["chalk", "npm:2.4.2"]
           ],
           "linkType": "HARD",
@@ -8194,7 +8202,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["yarn-plugin-bump", "workspace:."],
-            ["@types/node", "npm:13.11.1"],
+            ["@types/node", "npm:13.13.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.28.0"],
             ["@typescript-eslint/parser", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.28.0"],
             ["@yarnpkg/builder", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.0.0-rc.19"],
@@ -8202,7 +8210,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/core", "npm:2.0.0-rc.25"],
             ["@yarnpkg/plugin-essentials", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.0.0-rc.25"],
             ["@yarnpkg/pnpify", "virtual:9615259aa5e81e4f96f508340828e2dcebb410ae1bdf7f451701b00ddad87dde72b0d63a1fbc885624040f9ee6bbbfb4d9a508784628bb8b6f6218574768251c#npm:2.0.0-rc.20"],
-            ["clipanion", "npm:2.3.0"],
+            ["clipanion", "npm:2.3.1"],
             ["core-js", "npm:3.6.5"],
             ["eslint", "npm:6.8.0"],
             ["typescript", "patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=270b6c"]

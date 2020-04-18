@@ -413,10 +413,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^13.11.1":
-  version: 13.11.1
-  resolution: "@types/node@npm:13.11.1"
-  checksum: 2/0ced8498fb982d1275ce4f2e13554243d53386315e57de641d934fddeb02d86bc745c2c6b2aacad1072f081b0984d5f3beb81d309823202ec6cf8653f6d8100b
+"@types/node@npm:^13.13.0":
+  version: 13.13.0
+  resolution: "@types/node@npm:13.13.0"
+  checksum: 2/30bc5a1ade71f18de9a4324b273d140a131310e92245a449b39c3aaa1271ca03d6a59b79cb12154bbedd8960f99d184e0d757e53fe704d6d1736d9567696468e
   languageName: node
   linkType: hard
 
@@ -2067,12 +2067,21 @@ babel-plugin-lazy-import@arcanis/babel-plugin-lazy-import:
   languageName: node
   linkType: hard
 
-"clipanion@npm:^2.1.5, clipanion@npm:^2.3.0":
+"clipanion@npm:^2.1.5":
   version: 2.3.0
   resolution: "clipanion@npm:2.3.0"
   dependencies:
     chalk: ^2.4.2
   checksum: 2/be619bacf7e44769da193336a9b0b3f816cbbeb3c35019f1b397a46a919a2c879c979db0a9efc9b1ab4ea3a7c64e744a37245dec14703e71bbc196c2c87b4611
+  languageName: node
+  linkType: hard
+
+"clipanion@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "clipanion@npm:2.3.1"
+  dependencies:
+    chalk: ^2.4.2
+  checksum: 2/ae94adfb7e1ba0493afab6429eb028fa25b44cfa851975af6e80f54d4ec99de98b19c1a916726e2605cf68e851950653336e030ce30b424ddbf5dc9c715c5e0f
   languageName: node
   linkType: hard
 
@@ -7221,7 +7230,7 @@ typescript@^3.8.3:
   version: 0.0.0-use.local
   resolution: "yarn-plugin-bump@workspace:."
   dependencies:
-    "@types/node": ^13.11.1
+    "@types/node": ^13.13.0
     "@typescript-eslint/eslint-plugin": ^2.28.0
     "@typescript-eslint/parser": ^2.28.0
     "@yarnpkg/builder": ^2.0.0-rc.19
@@ -7229,7 +7238,7 @@ typescript@^3.8.3:
     "@yarnpkg/core": ^2.0.0-rc.25
     "@yarnpkg/plugin-essentials": ^2.0.0-rc.25
     "@yarnpkg/pnpify": ^2.0.0-rc.20
-    clipanion: ^2.3.0
+    clipanion: ^2.3.1
     core-js: ^3.6.5
     eslint: ^6.8.0
     typescript: ^3.8.3
