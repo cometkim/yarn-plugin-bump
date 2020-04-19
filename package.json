@@ -15,11 +15,11 @@
     "@yarnpkg/plugin-essentials": "^2.0.0-rc.25"
   },
   "dependencies": {
-    "clipanion": "^2.3.0",
+    "clipanion": "^2.3.1",
     "core-js": "^3.6.5"
   },
   "devDependencies": {
-    "@types/node": "^13.11.1",
+    "@types/node": "^13.13.0",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",
     "@yarnpkg/builder": "^2.0.0-rc.19",
