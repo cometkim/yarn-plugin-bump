@@ -17,7 +17,7 @@ Only essential features would be implemented.
 
 - [x] Package bumping (yarn up is used as it is)
 - [x] Package filtering
-- [x] Workspace support
+- [x] Workspace support (unstable yet, see [#9](https://github.com/cometkim/yarn-plugin-bump/issues/9))
 - [ ] Simple markdown formatting
 
 Advanced features like semver range support and fetching release notes are not planned for now.
