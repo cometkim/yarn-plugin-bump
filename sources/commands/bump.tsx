@@ -69,22 +69,6 @@ export default class BumpCommand extends BaseCommand {
 
   @Command.Path('bump')
   async execute(): Promise<number | void> {
-    const configuration = await Configuration.find(
-      this.context.cwd,
-      this.context.plugins
-    );
-    const { workspace } = await Project.find(
-      configuration,
-      this.context.cwd
-    );
-
-    if (!workspace) {
-      throw new Error(
-        `Workspace setting is not found.
-Please run the command in path where yarn initialized.`
-      );
-    }
-
     if (!Essentials.commands) {
       throw new Error(
         `Yarn commands could not be loaded.
@@ -92,18 +76,28 @@ Please upgrade to Yarn 2.`
       );
     }
 
-    const dependencies = this.getDependencies(workspace);
-    const descriptors = [...dependencies.values()]
-      .filter(descriptor => this.resolveFullPackageName(descriptor)
-        .match(this.packages.join('|') || '.*' as any))
-      .filter(descriptor => !this.resolveFullPackageName(descriptor)
-        .match(this.exclude.join('|') || null as any));
+    const configuration = await Configuration.find(
+      this.context.cwd,
+      this.context.plugins
+    );
 
-    const packageNames = descriptors.map(this.resolveFullPackageName);
+    const { project } = await Project.find(
+      configuration,
+      this.context.cwd
+    );
 
-    const cli = Cli.from(Essentials.commands);
-    const result = await cli.runExit(['up', ...packageNames], this.context);
+    for (const workspace of project.workspaces) {
+      const dependencies = this.getDependencies(workspace);
+      const descriptors = [...dependencies.values()]
+        .filter(descriptor => this.resolveFullPackageName(descriptor)
+          .match(this.packages.join('|') || '.*' as any))
+        .filter(descriptor => !this.resolveFullPackageName(descriptor)
+          .match(this.exclude.join('|') || null as any));
 
-    return result;
+      const packageNames = descriptors.map(this.resolveFullPackageName);
+
+      const cli = Cli.from(Essentials.commands);
+      await cli.runExit(['up', ...packageNames], this.context);
+    }
   }
 }
