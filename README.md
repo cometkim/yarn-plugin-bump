@@ -17,6 +17,7 @@ Only essential features would be implemented.
 
 - [x] Package bumping (yarn up is used as it is)
 - [x] Package filtering
+- [x] Workspace support
 - [ ] Simple markdown formatting
 
 Advanced features like semver range support and fetching release notes are not planned for now.
@@ -26,7 +27,7 @@ But feel free to fork this project, or send an issue about any idea you have.
 ## Install
 
 ```bash
-yarn plugin import https://github.com/cometkim/yarn-plugin-bump/releases/download/v0.0.6/plugin-bump.js
+yarn plugin import https://github.com/cometkim/yarn-plugin-bump/releases/download/v0.0.7/plugin-bump.js
 ```
 
 ## How to use
